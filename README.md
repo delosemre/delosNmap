@@ -16,8 +16,8 @@ Menu Options
        
        
 ## İmages
-very soon
-
+![](https://raw.githubusercontent.com/delosemre/resimler/master/delosNmap%20Resimler/delosNmap.png)
+![](https://raw.githubusercontent.com/delosemre/resimler/master/delosNmap%20Resimler/delosNmap1.png)
 ## Contact
 delosemre@outlook.com <br>
 delosemre@kernelblog.org <br>
