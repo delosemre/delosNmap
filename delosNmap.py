@@ -56,7 +56,6 @@ def menu():
     
 
 def baslangic():
-    logo()
     menu()
     print("   Enter one of the options.")
 
