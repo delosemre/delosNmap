@@ -283,10 +283,6 @@ def baslangic():
             time.sleep(2)
             baslangic()
 
-
-
-
-
     if secim=="0":
         print(" \033[1;91m@Good bye\033[1;m")
         sys.exit()
@@ -297,4 +293,13 @@ def baslangic():
         baslangic()
 
 
-baslangic()
+
+
+def rootkontrol():
+    if os.geteuid()==0:
+        baslangic()
+    else:
+        print "Lütfen root erişimi ile çalıştırın."
+        sys.exit()
+
+rootkontrol()
