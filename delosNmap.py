@@ -33,9 +33,8 @@ def logo():
   _| |(_)) | | ((_)((_)| \| | _((_)) ((_)_ ((_)_)
 / _` |/ -_)| |/ _ \(_-<| .` || '  \()/ _` || '_ \)
 \__,_|\___||_|\___//__/|_|\_||_|_|_| \__,_|| .__/
-  Emre Yılmaz (delosemre) - KernelBlog.org |_| v1
-\033[1;m
-    """)
+  Emre Yılmaz (delosemre) - KernelBlog.org |_| v1.5
+\033[1;m """)
 
 
 def menu():
@@ -50,8 +49,12 @@ def menu():
         7-) Service and Version Discovery
         8-) OS Analysis and Version Discovery
         9-) Nmap Script Engineering
+        \033[1;91m Firewall and IDS bypass \033[1;m
+        10-) Spoof Mac (-spoof-mac 'cisco')
+        11-) MTU
+        \033[1;91m Mixed \033[1;m
+        12-) together (-sS -sV -Pn -p-)
         0-) Exit
-
         """)
     
 
@@ -59,7 +62,7 @@ def baslangic():
     menu()
     print("   Enter one of the options.")
 
-    secim = raw_input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+    secim = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
 
     if secim == "1":
         print(" Starting Default Scan...")
@@ -68,13 +71,13 @@ def baslangic():
         logo()
         print(" Enter your IP address or example.com")
         print("")
-        birhedef = raw_input("     Enter Your Destination: ")
+        birhedef = input("     Enter Your Destination: ")
         os.system("nmap "+birhedef+" -oN "+birhedef)
         print("\n \033[1;91m your output file is in your current directory \033[1;m")
         os.system("pwd")
         print(" \033[1;91m Your current directory \033[1;m")
         print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimbir = raw_input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        secimbir = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
         if secimbir == "1":
             baslangic()
         if secimbir == "2":
@@ -92,13 +95,13 @@ def baslangic():
         logo()
         print(" Enter your IP address or example.com")
         print("")
-        ikihedef = raw_input("     Enter Your Destination: ")
+        ikihedef = input("     Enter Your Destination: ")
         os.system("nmap -Pn "+ikihedef+" -oN "+ikihedef)
         print("\n \033[1;91m your output file is in your current directory \033[1;m")
         os.system("pwd")
         print(" \033[1;91m Your current directory \033[1;m")
         print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimiki = raw_input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        secimiki = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
         if secimiki == "1":
             baslangic()
         if secimiki == "2":
@@ -116,13 +119,13 @@ def baslangic():
         logo()
         print(" Enter your IP address or example.com")
         print("")
-        uchedef = raw_input("     Enter Your Destination: ")
+        uchedef = input("     Enter Your Destination: ")
         os.system("nmap -sS "+uchedef+" -oN "+uchedef)
         print("\n \033[1;91m your output file is in your current directory \033[1;m")
         os.system("pwd")
         print(" \033[1;91m Your current directory \033[1;m")
         print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimuc = raw_input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        secimuc = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
         if secimuc == "1":
             baslangic()
         if secimuc == "2":
@@ -140,13 +143,13 @@ def baslangic():
         logo()
         print(" Enter your IP address or example.com")
         print("")
-        dorthedef = raw_input("     Enter Your Destination: ")
+        dorthedef = input("     Enter Your Destination: ")
         os.system("nmap –sT "+dorthedef+" -oN "+dorthedef)
         print("\n \033[1;91m your output file is in your current directory \033[1;m")
         os.system("pwd")
         print(" \033[1;91m Your current directory \033[1;m")
         print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimdort = raw_input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        secimdort = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
         if secimdort == "1":
             baslangic()
         if secimdort == "2":
@@ -164,13 +167,13 @@ def baslangic():
         logo()
         print(" Enter your IP address or example.com")
         print("")
-        beshedef = raw_input("     Enter Your Destination: ")
+        beshedef = input("     Enter Your Destination: ")
         os.system("nmap –sU "+beshedef+" -oN "+beshedef+".txt")
         print("\n \033[1;91m your output file is in your current directory \033[1;m")
         os.system("pwd")
         print(" \033[1;91m Your current directory \033[1;m")
         print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimbes = raw_input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        secimbes = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
         if secimbes == "1":
             baslangic()
         if secimbes == "2":
@@ -189,13 +192,13 @@ def baslangic():
         logo()
         print(" Enter your IP address or example.com")
         print("")
-        altihedef = raw_input("     Enter Your Destination: ")
+        altihedef = input("     Enter Your Destination: ")
         os.system("nmap -sS -F "+altihedef+" -oN "+altihedef+".txt")
         print("\n \033[1;91m your output file is in your current directory \033[1;m")
         os.system("pwd")
         print(" \033[1;91m Your current directory \033[1;m")
         print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimalti = raw_input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        secimalti = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
         if secimalti == "1":
             baslangic()
         if secimalti == "2":
@@ -215,13 +218,13 @@ def baslangic():
         logo()
         print(" Enter your IP address or example.com")
         print("")
-        yedihedef = raw_input("     Enter Your Destination: ")
+        yedihedef = input("     Enter Your Destination: ")
         os.system("nmap –sS -F "+yedihedef+" -oN "+yedihedef+".txt")
         print("\n \033[1;91m your output file is in your current directory \033[1;m")
         os.system("pwd")
         print(" \033[1;91m Your current directory \033[1;m")
         print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimyedi = raw_input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        secimyedi = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
         if secimyedi == "1":
             baslangic()
         if secimyedi == "2":
@@ -241,13 +244,13 @@ def baslangic():
         logo()
         print(" Enter your IP address or example.com")
         print("")
-        sekizhedef = raw_input("     Enter Your Destination: ")
+        sekizhedef = input("     Enter Your Destination: ")
         os.system("nmap –sS -O "+sekizhedef+" -oN "+sekizhedef+".txt")
         print("\n \033[1;91m your output file is in your current directory \033[1;m")
         os.system("pwd")
         print(" \033[1;91m Your current directory \033[1;m")
         print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimsekiz = raw_input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        secimsekiz = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
         if secimsekiz == "1":
             baslangic()
         if secimsekiz == "2":
@@ -266,13 +269,13 @@ def baslangic():
         logo()
         print(" Enter your IP address or example.com")
         print("")
-        dokuzhedef = raw_input("     Enter Your Destination: ")
+        dokuzhedef = input("     Enter Your Destination: ")
         os.system("nmap –sC "+dokuzhedef+" -oN "+dokuzhedef+".txt")
         print("\n \033[1;91m your output file is in your current directory \033[1;m")
         os.system("pwd")
         print(" \033[1;91m Your current directory \033[1;m")
         print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimdokuz = raw_input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        secimdokuz = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
         if secimdokuz == "1":
             baslangic()
         if secimdokuz == "2":
@@ -282,6 +285,81 @@ def baslangic():
             print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
             time.sleep(2)
             baslangic()
+
+    if secim=="10":
+        print("Starting -spoof-mac 'cisco' ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        onhedef = input("     Enter Your Destination: ")
+        os.system("nmap -spoof-mac 'cisco' "+onhedef+" -oN "+onhedef+".txt")
+        print("\n \033[1;91m your output file is in your current directory \033[1;m")
+        os.system("pwd")
+        print(" \033[1;91m Your current directory \033[1;m")
+        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
+        secimon = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        if secimon == "1":
+            baslangic()
+        if secimon == "2":
+            print(" \033[1;91m@Good bye\033[1;m")
+            sys.exit() 
+        else:
+            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+            time.sleep(2)
+            baslangic()
+
+    if secim=="11":
+        print("Starting MTU ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        onbirhedef = input("     Enter Your Destination: ")
+        print("Enter the MTU value. Data payload MTU must be >0 and multiple of 8")
+        mtudeger=input("MTU Value:")
+        os.system("nmap --mtu "+mtudeger+" "+onbirhedef+" -oN "+onbirhedef+".txt")
+        print("\n \033[1;91m your output file is in your current directory \033[1;m")
+        os.system("pwd")
+        print(" \033[1;91m Your current directory \033[1;m")
+        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
+        secimonbir= input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        if secimonbir == "1":
+            baslangic()
+        if secimonbir == "2":
+            print(" \033[1;91m@Good bye\033[1;m")
+            sys.exit() 
+        else:
+            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+            time.sleep(2)
+            baslangic()
+
+    if secim=="12":
+        print("Starting together (-sS -sV -Pn -p-) ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        onikihedef = input("     Enter Your Destination: ")
+        os.system("nmap -sS -sV -Pn -p- "+onikihedef+" -oN "+onikihedef+".txt")
+        print("\n \033[1;91m your output file is in your current directory \033[1;m")
+        os.system("pwd")
+        print(" \033[1;91m Your current directory \033[1;m")
+        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
+        secimoniki = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        if secimoniki == "1":
+            baslangic()
+        if secimoniki == "2":
+            print(" \033[1;91m@Good bye\033[1;m")
+            sys.exit() 
+        else:
+            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+            time.sleep(2)
+            baslangic()
+
 
     if secim=="0":
         print(" \033[1;91m@Good bye\033[1;m")
@@ -299,7 +377,7 @@ def rootkontrol():
     if os.geteuid()==0:
         baslangic()
     else:
-        print "Lütfen root erişimi ile çalıştırın."
+        print ("Please run it with root access.")
         sys.exit()
 
 rootkontrol()
