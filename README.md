@@ -19,7 +19,7 @@ Menu Options
         12-) together (-sS -sV -Pn -p-)
         0-) Exit
        
-## Innovations added on 19.02.2021.
+## New Features on 19.02.2021.
         *Spoof Mac
         *MTU
         *Mixed (-sS -sV -Pn -p-)
@@ -27,7 +27,7 @@ Menu Options
 ## Usage
         sudo python3 delosNmap.py
         
-## Libraries used
+## Libraries
         import sys
         import os
         import time
@@ -36,7 +36,7 @@ Menu Options
         from sys import argv
         from platform import system
 
-## İmages
+## Images
 ![](https://raw.githubusercontent.com/delosemre/resimler/master/delosNmap%20Resimler/delosNmap%20v1.5.png)
 ![](https://raw.githubusercontent.com/delosemre/resimler/master/delosNmap%20Resimler/delosNmap%20v1.5%20(2).png)
 
