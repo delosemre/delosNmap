@@ -47,9 +47,12 @@ Menu Options
         from sys import argv
         from platform import system
 
-## Images
-![](https://raw.githubusercontent.com/delosemre/resimler/master/delosNmap%20Resimler/delosNmap%20v1.5.png)
-![](https://raw.githubusercontent.com/delosemre/resimler/master/delosNmap%20Resimler/delosNmap%20v1.5%20(2).png)
+## Example Usage
+[![asciicast](https://asciinema.org/a/TvecD1aJyaY1zdWwPUwlsOOQO.svg)](https://asciinema.org/a/TvecD1aJyaY1zdWwPUwlsOOQO)
+
+## Image
+
+![image](https://raw.githubusercontent.com/delosemre/resimler/master/delosnmapmain.PNG)
 
 ## Notice
 
