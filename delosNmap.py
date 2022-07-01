@@ -3,6 +3,7 @@
 ##########################
 #                        #
 #Emre Yılmaz (delosemre) #
+# 	   emreylmz.com      #
 # 	  kernelblog.org     #
 ##########################
 
@@ -14,6 +15,23 @@ from time import sleep
 from sys import argv
 from platform import system
 
+defaultportscan="50";
+
+def anamenu():
+        print("\n \033[1;91m your output file is in your current directory \033[1;m")
+        os.system("pwd")
+        print(" \033[1;91m Your current directory \033[1;m")
+        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
+        secimdonus = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        if secimdonus == "1":
+            baslangic()
+        if secimdonus == "2":
+            print(" \033[1;91m@Good bye\033[1;m")
+            sys.exit() 
+        else:
+            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+            time.sleep(2)
+            baslangic()
 
 def sigint_handler(signum, frame):
     os.system("clear")
@@ -33,7 +51,7 @@ def logo():
   _| |(_)) | | ((_)((_)| \| | _((_)) ((_)_ ((_)_)
 / _` |/ -_)| |/ _ \(_-<| .` || '  \()/ _` || '_ \)
 \__,_|\___||_|\___//__/|_|\_||_|_|_| \__,_|| .__/
-  Emre Yılmaz (delosemre) - KernelBlog.org |_| v1.5
+  Emre Yılmaz (delosemre) - emreylmz.com |_| v2
 \033[1;m """)
 
 
@@ -45,15 +63,24 @@ def menu():
         3-) Port(SYN) Scan
         4-) Port(TCP) Scan
         5-) Port(UDP) Scan
-        6-) Port Definition (-sS -F)
-        7-) Service and Version Discovery
+        6-) Null scan (-sN)
+        7-) FIN scan (-sF)
         8-) OS Analysis and Version Discovery
-        9-) Nmap Script Engineering
-        \033[1;91m Firewall and IDS bypass \033[1;m
-        10-) Spoof Mac (-spoof-mac 'cisco')
-        11-) MTU
-        \033[1;91m Mixed \033[1;m
-        12-) together (-sS -sV -Pn -p-)
+        9-) Nmap Script Engineering (default)
+        \033[1;91m Firewall Bypass \033[1;m
+        10-) Script Bypass (--script=firewall-bypass)
+        11-) Data Length (--data-length <number> )
+        12-) Smash (-ff)
+        \033[1;91m Vulnerability Scanning \033[1;m
+        13-) Default Vuln Scan (--script vuln)
+        14-) FTP Vuln Scan
+        15-) SMB Vuln Scan
+        16-) HTTP Vuln Scan
+        17-) SQL Injection Vuln Scan
+        18-) Stored XSS Vuln Scan
+        19-) Dom Based XSS vuln Scan
+
+        00-) Contact
         0-) Exit
         """)
     
@@ -62,7 +89,7 @@ def baslangic():
     menu()
     print("   Enter one of the options.")
 
-    secim = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+    secim = input("root""\033[1;91m@emreylmzcom:~$\033[1;m ")
 
     if secim == "1":
         print(" Starting Default Scan...")
@@ -72,21 +99,20 @@ def baslangic():
         print(" Enter your IP address or example.com")
         print("")
         birhedef = input("     Enter Your Destination: ")
-        os.system("nmap "+birhedef+" -oN "+birhedef)
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimbir = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimbir == "1":
-            baslangic()
-        if secimbir == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not birhedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport1=input("Top Port? Example: 10 or 50, Default 50:  ")
+            if not topport1:
+                os.system("nmap -vv --top-ports="+defaultportscan+" "+birhedef+" -oN "+birhedef)
+            else:
+                os.system("nmap -vv --top-ports="+topport1+" "+birhedef+" -oN "+birhedef)
+            
+        anamenu()
 
     if secim =="2":
         print(" Starting Host Discovery...")
@@ -96,21 +122,20 @@ def baslangic():
         print(" Enter your IP address or example.com")
         print("")
         ikihedef = input("     Enter Your Destination: ")
-        os.system("nmap -Pn "+ikihedef+" -oN "+ikihedef)
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimiki = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimiki == "1":
-            baslangic()
-        if secimiki == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not ikihedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport2=input("Top Port? Example: 10 or 50, Default 50:  ")
+            if not topport2:
+                os.system("nmap -vv -Pn --top-ports="+defaultportscan+" "+ikihedef+" -oN HostD-"+ikihedef+"-output")
+            else:
+                os.system("nmap -vv -Pn --top-ports="+topport2+" "+ikihedef+" -oN HostD-"+ikihedef+"-output")
+            
+        anamenu()
     
     if secim== "3":
         print(" Starting Port(SYN) Scan...")
@@ -120,21 +145,20 @@ def baslangic():
         print(" Enter your IP address or example.com")
         print("")
         uchedef = input("     Enter Your Destination: ")
-        os.system("nmap -sS "+uchedef+" -oN "+uchedef)
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimuc = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimuc == "1":
-            baslangic()
-        if secimuc == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not uchedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport3=input("Top Port? Example: 10 or 50, Default 50:  ")
+            if not topport3:
+                os.system("nmap -vv -sS --top-ports="+defaultportscan+" "+uchedef+" -oN "+uchedef+"-output")
+            else:
+                os.system("nmap -vv -sS --top-ports="+topport3+" "+uchedef+" -oN "+uchedef+"-output")
+
+        anamenu()
     
     if secim== "4":
         print(" Starting Port(TCP) Scan...")
@@ -144,21 +168,20 @@ def baslangic():
         print(" Enter your IP address or example.com")
         print("")
         dorthedef = input("     Enter Your Destination: ")
-        os.system("nmap –sT "+dorthedef+" -oN "+dorthedef)
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimdort = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimdort == "1":
-            baslangic()
-        if secimdort == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not dorthedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport4=input("Top Port? Example: 10 or 50, Default 50:  ")
+            if not topport4:
+                os.system("nmap -vv –sT --top-ports="+defaultportscan+" "+dorthedef+" -oN TcpScan-"+dorthedef+"-output")
+            else:
+                os.system("nmap -vv –sT --top-ports="+topport4+" "+dorthedef+" -oN TcpScan-"+dorthedef+"-output")
+
+        anamenu()
     
     if secim== "5":
         print(" Starting Port(UDP) Scan...")
@@ -168,72 +191,69 @@ def baslangic():
         print(" Enter your IP address or example.com")
         print("")
         beshedef = input("     Enter Your Destination: ")
-        os.system("nmap –sU "+beshedef+" -oN "+beshedef+".txt")
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimbes = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimbes == "1":
-            baslangic()
-        if secimbes == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not beshedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport5=input("Top Port? Example: 10 or 50, Default 50:  ")
+            if not topport5:
+                os.system("nmap -vv –sU --top-ports="+defaultportscan+" "+beshedef+" -oN UdpScan-"+beshedef+"-output")
+            else:
+                os.system("nmap -vv –sU --top-ports="+topport5+" "+beshedef+" -oN UdpScan-"+beshedef+"-output")
+            
+        anamenu()
 
 
     if secim=="6":
-        print(" Starting Port Definition (-sS -F)...")
+        print(" Null scan (-sN)")
         time.sleep(1)
         os.system("clear")
         logo()
         print(" Enter your IP address or example.com")
         print("")
         altihedef = input("     Enter Your Destination: ")
-        os.system("nmap -sS -F "+altihedef+" -oN "+altihedef+".txt")
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimalti = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimalti == "1":
-            baslangic()
-        if secimalti == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not altihedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport6=input("Top Port? Example: 10 or 50, Default 50:  ")
+            if not topport6:
+                os.system("nmap -vv -sN --top-ports="+defaultportscan+" "+altihedef+" -oN NullScan-"+altihedef+"-output")
+            else:
+                os.system("nmap -vv -sN --top-ports="+topport6+" "+altihedef+" -oN NullScan-"+altihedef+"-output")
+
+        anamenu()
 
 
     
     if secim=="7":
-        print(" Starting Service and Version Discovery...")
+        print(" FIN scan (-sF)")
         time.sleep(1)
         os.system("clear")
         logo()
         print(" Enter your IP address or example.com")
         print("")
         yedihedef = input("     Enter Your Destination: ")
-        os.system("nmap –sS -F "+yedihedef+" -oN "+yedihedef+".txt")
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimyedi = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimyedi == "1":
-            baslangic()
-        if secimyedi == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not yedihedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport7=input("Top Port? Example: 10 or 50, Default 50:  ")
+            if not topport7:
+                os.system("nmap -vv -sF --top-ports="+defaultportscan+" "+yedihedef+" -oN FinScan-"+yedihedef+"-output")
+            else:
+                os.system("nmap -vv -sF --top-ports="+topport7+" "+yedihedef+" -oN FinScan-"+yedihedef+"-output")
+
+        anamenu()
 
 
 
@@ -245,21 +265,20 @@ def baslangic():
         print(" Enter your IP address or example.com")
         print("")
         sekizhedef = input("     Enter Your Destination: ")
-        os.system("nmap –sS -O "+sekizhedef+" -oN "+sekizhedef+".txt")
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimsekiz = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimsekiz == "1":
-            baslangic()
-        if secimsekiz == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not sekizhedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport8=input("Top Port? Example: 10 or 50, Default 50:  ")
+            if not topport9:
+                os.system("nmap –sS -sV -O --top-ports="+defaultportscan+" "+sekizhedef+" -oN Os-Version-"+sekizhedef+"output")
+            else:
+                os.system("nmap –sS -sV -O --top-ports="+topport8+" "+sekizhedef+" -oN Os-Version-"+sekizhedef+"output")
+        
+        anamenu()
 
 
     if secim=="9":
@@ -270,96 +289,273 @@ def baslangic():
         print(" Enter your IP address or example.com")
         print("")
         dokuzhedef = input("     Enter Your Destination: ")
-        os.system("nmap –sC "+dokuzhedef+" -oN "+dokuzhedef+".txt")
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimdokuz = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimdokuz == "1":
-            baslangic()
-        if secimdokuz == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not dokuzhedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport9= input("Top Port? Example: 10 or 50, Default 50:  ")
+            if not topport9:
+                os.system("nmap -vv --script=default --top-ports="+defaultportscan+" " +dokuzhedef+" -oN ScScan-"+dokuzhedef+"-output")
+            else:
+                os.system("nmap -vv --script=default --top-ports="+topport9+" " +dokuzhedef+" -oN ScScan-"+dokuzhedef+"-output")
+            
+        anamenu()
 
+#firewall bypass
     if secim=="10":
-        print("Starting -spoof-mac 'cisco' ")
+        print("Starting Nmap Scripting Firewall Bypass ")
         time.sleep(1)
         os.system("clear")
         logo()
         print(" Enter your IP address or example.com")
         print("")
         onhedef = input("     Enter Your Destination: ")
-        os.system("nmap -spoof-mac 'cisco' "+onhedef+" -oN "+onhedef+".txt")
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimon = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimon == "1":
-            baslangic()
-        if secimon == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not onhedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport10= input("Top Port? Example: 10 or 50, Default 50:  ")
+            if not topport10:
+                os.system("nmap -vv --script=firewall-bypass --top-ports="+defaultportscan+" " +onhedef+" -oN "+"firewallbaypass-"+onhedef+"-output")
+            else :
+                os.system("nmap -vv --script=firewall-bypass --top-ports="+topport10+" " +onhedef+" -oN "+"firewallbaypass-"+onhedef+"-output")
+
+        anamenu()
 
     if secim=="11":
-        print("Starting MTU ")
+        print("Starting Data Length ")
         time.sleep(1)
         os.system("clear")
         logo()
         print(" Enter your IP address or example.com")
         print("")
         onbirhedef = input("     Enter Your Destination: ")
-        print("Enter the MTU value. Data payload MTU must be >0 and multiple of 8")
-        mtudeger=input("MTU Value:")
-        os.system("nmap --mtu "+mtudeger+" "+onbirhedef+" -oN "+onbirhedef+".txt")
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimonbir= input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimonbir == "1":
-            baslangic()
-        if secimonbir == "2":
-            print(" \033[1;91m@Good bye\033[1;m")
-            sys.exit() 
-        else:
-            print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
+        if not onbirhedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
             time.sleep(2)
+            os.system("clear")
             baslangic()
+        else:
+            topport11= input("Top Port? Example 10 or 50, Default 50:  ")
+            print("Append random data to sent packets")
+            datalength=input("Number:")
+            if not topport11:
+                os.system("nmap --data-string "+datalength+" --top-ports="+defaultportscan+" "+onbirhedef+" -oN datalength-"+onbirhedef+"-output")
+            else:
+                os.system("nmap ---data-string +"+datalength+" --top-ports="+topport11+" "+onbirhedef+" -oN datalength-"+onbirhedef+"output")
+            
+        anamenu()
 
     if secim=="12":
-        print("Starting together (-sS -sV -Pn -p-) ")
+        print("Smash (-ff) ")
         time.sleep(1)
         os.system("clear")
         logo()
         print(" Enter your IP address or example.com")
         print("")
         onikihedef = input("     Enter Your Destination: ")
-        os.system("nmap -sS -sV -Pn -p- "+onikihedef+" -oN "+onikihedef+".txt")
-        print("\n \033[1;91m your output file is in your current directory \033[1;m")
-        os.system("pwd")
-        print(" \033[1;91m Your current directory \033[1;m")
-        print("\n \033[1;91m1-) Back to Main Menu \n 2-) Exit \033[1;m")
-        secimoniki = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
-        if secimoniki == "1":
+        if not onikihedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
             baslangic()
-        if secimoniki == "2":
+        else:
+            topport12= input("Top Port? Example 10 or 50, Default 50:  ")
+            if not topport12:
+                os.system("nmap -vv -ff --top-ports="+defaultportscan+" " +onikihedef+" -oN "+"ff-"+onikihedef+"-output" )
+            else:
+                os.system("nmap -vv -ff --top-ports="+topport12+" " +onikihedef+" -oN "+"ff-"+onikihedef+"-output" )
+
+        anamenu()
+
+#Zafiyet Tarama 'biraz ayar çekilmesi lazım'
+
+    if secim=="13":
+        print("Default Vuln Scan ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        onuchedef = input("     Enter Your Destination: ")
+        if not onuchedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
+            baslangic()
+        else:
+            topport13=input("\033[92mTop Port? Example 10 or 50, Default 50:\033[0m;  ")
+            if not topport13:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+defaultportscan+" --script vuln " +onuchedef+" -oN "+"VulnScanDef-"+onuchedef+"-output" )
+            else:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+topport13+" --script vuln " +onuchedef+" -oN "+"VulnScanDef-"+onuchedef+"-output" )
+        
+        anamenu()
+
+
+    if secim=="14":
+        print("FTP Vuln Scan ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        ondorthedef = input("     Enter Your Destination: ")
+        if not ondorthedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
+            baslangic()
+        else:
+            topport14=input("\033[92mTop Port? Example 10 or 50, Default 50:\033[0m;  ")
+            if not topport14:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+defaultportscan+" --script ftp* " +ondorthedef+" -oN "+"FTPvuln-"+ondorthedef+"-output" )
+            else:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+topport14+" --script ftp* " +ondorthedef+" -oN "+"FTPvuln-"+ondorthedef+"-output" )
+        
+        anamenu()
+
+    if secim=="15":
+        print("SMB Vuln Scan ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        onbeshedef = input("     Enter Your Destination: ")
+        if not onbeshedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
+            baslangic()
+        else:
+            topport15=input("\033[92mTop Port? Example 10 or 50, Default 50:\033[0m;  ")
+            if not topport15:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+defaultportscan+" --script smb* " +onbeshedef+" -oN "+"SMBvuln-"+onbeshedef+"-output" )
+            else:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+topport15+" --script smb* " +onbeshedef+" -oN "+"SMBvuln-"+onbeshedef+"-output" )
+        
+        anamenu()
+
+
+    if secim=="16":
+        print("HTTP Vuln Scan ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        onaltihedef = input("     Enter Your Destination: ")
+        if not onaltihedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
+            baslangic()
+        else:
+            topport16=input("\033[92mTop Port? Example 10 or 50, Default 50:\033[0m;  ")
+            if not topport16:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+defaultportscan+" --script smb* " +onaltihedef+" -oN "+"HTTPvuln-"+onaltihedef+"-output" )
+            else:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+topport16+" --script smb* " +onaltihedef+" -oN "+"HTTPvuln-"+onaltihedef+"-output" )
+        
+        anamenu()   
+
+    if secim=="17":
+        print("SQL Injection Vuln Scan ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        onyedihedef = input("     Enter Your Destination: ")
+        if not onyedihedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
+            baslangic()
+        else:
+            topport17=input("\033[92mTop Port? Example 10 or 50, Default 50:\033[0m;  ")
+            if not topport17:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+defaultportscan+" --script=http-sql-injection " +onyedihedef+" -oN "+"SQLvuln-"+onyedihedef+"-output" )
+            else:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+topport17+" --script=http-sql-injection " +onyedihedef+" -oN "+"SQLvuln-"+onyedihedef+"-output" )
+        
+        anamenu() 
+
+    if secim=="18":
+        print("Stored XSS Vuln Scan ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        onsekizhedef = input("     Enter Your Destination: ")
+        if not onsekizhedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
+            baslangic()
+        else:
+            topport18=input("\033[92mTop Port? Example 10 or 50, Default 50:\033[0m;  ")
+            if not topport18:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+defaultportscan+" --script=http-stored-xss.nse " +onsekizhedef+" -oN "+"StoredXSSvuln-"+onsekizhedef+"-output" )
+            else:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+topport18+" --script=http-stored-xss.nse " +onsekizhedef+" -oN "+"StoredXSSvuln-"+onsekizhedef+"-output" )
+        
+        anamenu() 
+
+
+    if secim=="19":
+        print("DOM Based XSS Vuln Scan ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        ondokuzhedef = input("     Enter Your Destination: ")
+        if not ondokuzhedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
+            baslangic()
+        else:
+            topport19=input("\033[92mTop Port? Example 10 or 50, Default 50:\033[0m;  ")
+            if not topport19:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+defaultportscan+" --script=http-dombased-xss.nse " +ondokuzhedef+" -oN "+"DomBasedXSSvuln-"+ondokuzhedef+"-output" )
+            else:
+                os.system("nmap -vv -sV -ff -Pn --top-ports="+topport19+" --script=http-dombased-xss.nse " +ondokuzhedef+" -oN "+"DomBasedXSSvuln-"+ondokuzhedef+"-output" )
+        
+        anamenu() 
+
+
+    if secim=="00":
+        print("\n             \033[1;91mContact\033[1;m")
+        print("Mail: emre@emreylmz.com\nWeb Site: http://www.emreylmz.com\nGithub: https://github.com/delosemre\nTelegram: \033[1;91m@delosemre\033[1;m\n\n")
+        secimdonus = input("root""\033[1;91m@KernelBlog:~$\033[1;m ")
+        if secimdonus == "1":
+            baslangic()
+        if secimdonus == "2":
             print(" \033[1;91m@Good bye\033[1;m")
             sys.exit() 
         else:
             print(" Please enter one of the options in the menu. \n You are directed to the main menu.")
             time.sleep(2)
             baslangic()
-
 
     if secim=="0":
         print(" \033[1;91m@Good bye\033[1;m")

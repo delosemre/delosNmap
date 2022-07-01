@@ -8,22 +8,33 @@ Menu Options
         3-) Port(SYN) Scan
         4-) Port(TCP) Scan
         5-) Port(UDP) Scan
-        6-) Port Definition (-sS -F)
-        7-) Service and Version Discovery
+        6-) Null scan (-sN)
+        7-) FIN scan (-sF)
         8-) OS Analysis and Version Discovery
-        9-) Nmap Script Engineering
-         Firewall and IDS bypass 
-        10-) Spoof Mac (-spoof-mac 'cisco')
-        11-) MTU
-         Mixed 
-        12-) together (-sS -sV -Pn -p-)
+        9-) Nmap Script Engineering (default)
+        
+        Firewall Bypass
+        10-) Script Bypass (--script=firewall-bypass)
+        11-) Data Length (--data-length <number> )
+        12-) Smash (-ff)
+
+        Vulnerability Scanning
+        13-) Default Vuln Scan (--script vuln)
+        14-) FTP Vuln Scan
+        15-) SMB Vuln Scan
+        16-) HTTP Vuln Scan
+        17-) SQL Injection Vuln Scan
+        18-) Stored XSS Vuln Scan
+        19-) Dom Based XSS vuln Scan
+
+        00-) Contact
         0-) Exit
        
-## New Features on 19.02.2021.
-        *Spoof Mac
-        *MTU
-        *Mixed (-sS -sV -Pn -p-)
-        *And bug fixes
+## New Features on 01.07.20221
+        *Null Scan add
+        *FIN Scan add
+        *Vulnerability Scaning add
+        *Firewall bypass edit and bugs fix
 ## Usage
         sudo python3 delosNmap.py
         
@@ -42,16 +53,12 @@ Menu Options
 
 ## Notice
 
-Other selections have only one parameter, except mixed.
+Run it with Python3 and don't forget to be root! <br>
 Communicate for suggestions!
 
 ## Contact
 delosemre@outlook.com <br>
-delosemre@kernelblog.org <br>
+emre@emreylmz.com <br>
 https://emreylmz.com <br>
-https://kernelblog.org <br>
 https://t.me/delosemre <br> 
-https://t.me/kernelblog <br> 
-https://t.me/kernel_blog <br> 
-https://twitter.com/kernel_blog <br> 
-http://instagram.com/kernelblog
+https://twitter.com/delosemre
