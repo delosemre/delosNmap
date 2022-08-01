@@ -30,7 +30,7 @@ Menu Options
         00-) Contact
         0-) Exit
        
-## New Features on 01.07.20221
+## New Features on 01.07.2022
         *Null Scan add
         *FIN Scan add
         *Vulnerability Scaning add
