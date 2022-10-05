@@ -37,8 +37,8 @@ Menu Options
         0-) Exit
        
 ## New Features on 06.10.2022
-        *Subdomain
-        *Whois
+- Subdomain
+- Whois
         
 ## Usage
         sudo python3 delosNmap.py
@@ -65,8 +65,8 @@ Run it with Python3 and don't forget to be root! <br>
 Communicate for suggestions!
 
 ## Contact
-delosemre@outlook.com <br>
-emre@emreylmz.com <br>
-https://emreylmz.com <br>
-https://t.me/delosemre <br> 
-https://twitter.com/delosemre
+- delosemre@outlook.com <br>
+- emre@emreylmz.com <br>
+- https://emreylmz.com <br>
+- https://t.me/delosemre <br> 
+- https://twitter.com/delosemre
