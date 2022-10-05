@@ -51,13 +51,14 @@ def logo():
   _| |(_)) | | ((_)((_)| \| | _((_)) ((_)_ ((_)_)
 / _` |/ -_)| |/ _ \(_-<| .` || '  \()/ _` || '_ \)
 \__,_|\___||_|\___//__/|_|\_||_|_|_| \__,_|| .__/
-  Emre Yılmaz (delosemre) - emreylmz.com |_| v2
+  Emre Yılmaz (delosemre) - emreylmz.com |_| v2.5
 \033[1;m """)
 
 
 def menu():
     logo()
     print("""
+        \033[1;91m Default Scan Types \033[1;m
         1-) Default Scan
         2-) Host Discovery
         3-) Port(SYN) Scan
@@ -79,6 +80,11 @@ def menu():
         17-) SQL Injection Vuln Scan
         18-) Stored XSS Vuln Scan
         19-) Dom Based XSS vuln Scan
+        \033[1;91m Subdomain Scanning \033[1;m
+        20-) DNS Brute-force Hostnames
+        21-) Subdomain/hostmap-crtsh
+        \033[1;91m Other \033[1;m
+        22-) Whois
 
         00-) Contact
         0-) Exit
@@ -541,7 +547,76 @@ def baslangic():
                 os.system("nmap -vv -sV -ff -Pn --top-ports="+topport19+" --script=http-dombased-xss.nse " +ondokuzhedef+" -oN "+"DomBasedXSSvuln-"+ondokuzhedef+"-output" )
         
         anamenu() 
+    
+    
+    if secim=="20":
+        print("DNS Brute-force Hostnames ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        yirmihedef = input("     Enter Your Destination: ")
+        if not yirmihedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
+            baslangic()
+        else:
+            topport20=input("\033[92mTop Port? Example 10 or 50, Default 50:\033[0m;  ")
+            if not topport20:
+                os.system("nmap --top-ports="+defaultportscan+" --script dns-brute " +yirmihedef+" -oN "+"subdomain_DnsBruteForce-"+yirmihedef+"-output" )
+            else:
+                os.system("nmap --top-ports="+topport20+" --script dns-brute " +yirmihedef+" -oN "+"subdomain_DnsBruteForce-"+yirmihedef+"-output" )
+        
+        anamenu()
 
+    if secim=="21":
+        print("Subdomain/hostmap-crtsh ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        yirmibirhedef = input("     Enter Your Destination: ")
+        if not yirmibirhedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
+            baslangic()
+        else:
+            topport21=input("\033[92mTop Port? Example 10 or 50, Default 50:\033[0m;  ")
+            if not topport21:
+                os.system("nmap --top-ports="+defaultportscan+" --script hostmap-crtsh " +yirmibirhedef+" -oN "+"Subdomain_crtsh-"+yirmibirhedef+"-output" )
+            else:
+                os.system("nmap --top-ports="+topport21+" --script hostmap-crtsh " +yirmibirhedef+" -oN "+"Subdomain_crtsh-"+yirmibirhedef+"-output" )
+        
+        anamenu() 
+
+    if secim=="22":
+        print("Whois ")
+        time.sleep(1)
+        os.system("clear")
+        logo()
+        print(" Enter your IP address or example.com")
+        print("")
+        yirmiikihedef = input("     Enter Your Destination: ")
+        if not yirmiikihedef:
+            print("Pls Enter Target")
+            print("\033[1;91mYou are grounded! You go to the main menu...\033[1;m")
+            time.sleep(2)
+            os.system("clear")
+            baslangic()
+        else:
+            topport22=input("\033[92mTop Port? Example 10 or 50, Default 50:\033[0m;  ")
+            if not topport22:
+                os.system("nmap --top-ports="+defaultportscan+" --script whois-domain.nse " +yirmiikihedef+" -oN "+"whois-"+yirmiikihedef+"-output" )
+            else:
+                os.system("nmap --top-ports="+topport22+" --script whois-domain.nse " +yirmiikihedef+" -oN "+"whois-"+yirmiikihedef+"-output" )
+        
+        anamenu() 
 
     if secim=="00":
         print("\n             \033[1;91mContact\033[1;m")
