@@ -3,6 +3,7 @@
 
 Menu Options
 
+                Default Scan Types 
         1-) Default Scan
         2-) Host Discovery
         3-) Port(SYN) Scan
@@ -13,12 +14,12 @@ Menu Options
         8-) OS Analysis and Version Discovery
         9-) Nmap Script Engineering (default)
         
-        Firewall Bypass
+                Firewall Bypass
         10-) Script Bypass (--script=firewall-bypass)
         11-) Data Length (--data-length <number> )
         12-) Smash (-ff)
-
-        Vulnerability Scanning
+        
+                Vulnerability Scanning
         13-) Default Vuln Scan (--script vuln)
         14-) FTP Vuln Scan
         15-) SMB Vuln Scan
@@ -26,15 +27,19 @@ Menu Options
         17-) SQL Injection Vuln Scan
         18-) Stored XSS Vuln Scan
         19-) Dom Based XSS vuln Scan
+                Subdomain Scanning
+        20-) DNS Brute-force Hostnames
+        21-) Subdomain/hostmap-crtsh
+                Other
+        22-) Whois
 
         00-) Contact
         0-) Exit
        
-## New Features on 01.07.2022
-        *Null Scan add
-        *FIN Scan add
-        *Vulnerability Scaning add
-        *Firewall bypass edit and bugs fix
+## New Features on 06.10.2022
+        *Subdomain
+        *Whois
+        
 ## Usage
         sudo python3 delosNmap.py
         
@@ -52,7 +57,7 @@ Menu Options
 
 ## Image
 
-![image](https://raw.githubusercontent.com/delosemre/resimler/master/delosnmapmain.PNG)
+![image](https://raw.githubusercontent.com/delosemre/resimler/master/delosNmap%20Resimler/delosnmapv2.5.PNG)
 
 ## Notice
 
