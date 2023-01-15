@@ -279,7 +279,7 @@ def baslangic():
             baslangic()
         else:
             topport8=input("Top Port? Example: 10 or 50, Default 50:  ")
-            if not topport9:
+            if not topport8:
                 os.system("nmap –sS -sV -O --top-ports="+defaultportscan+" "+sekizhedef+" -oN Os-Version-"+sekizhedef+"output")
             else:
                 os.system("nmap –sS -sV -O --top-ports="+topport8+" "+sekizhedef+" -oN Os-Version-"+sekizhedef+"output")
